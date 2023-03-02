@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        static string[] url = new string[0];
         static void Main(string[] args)
         {
             PrintWelcome();
@@ -20,7 +21,7 @@
                 }
                 else if (command == "load")
                 {
-                    NotYetImplemented(command);
+                    LoadFile();
                 }
                 else if (command == "open")
                 {
@@ -58,7 +59,9 @@
 
         private static void LoadFile()
         {
-            string fileName = "";
+            string fileName = "C:\\Users\\Användar\\source\\repos\\WebLinks\\weblinks.txt";
+            url = File.ReadAllLines(fileName);
+
         }
 
         private static void ListURLFromFile()
