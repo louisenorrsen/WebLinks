@@ -29,7 +29,7 @@ namespace WebLinks
                 }
                 else if (command == "list")
                 {
-                    ListURLFromFile();
+                    ListURL();
                 }
                 else if (command == "open")
                 {
@@ -74,7 +74,7 @@ namespace WebLinks
 
         }
 
-        private static void ListURLFromFile()
+        private static void ListURL()
         {
             string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
 
