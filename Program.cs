@@ -55,5 +55,30 @@
             };
             foreach (string h in hstr) Console.WriteLine(h);
         }
+
+        private static void LoadFile()
+        {
+            string fileName = "";
+        }
+
+        private static void ListURLFromFile()
+        {
+
+        }
+
+        private static void OpenURL(string url)
+        {
+
+        }
+
+        private static void AddURL()
+        {
+
+        }
+
+        private static void SaveURL()
+        {
+
+        }
     }
 }
