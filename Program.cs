@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
 
 namespace WebLinks
-{
+{   
+    class Links
+    { }
     internal class Program
     {
         static string[] url = new string[0];
@@ -67,8 +69,8 @@ namespace WebLinks
 
         private static void LoadFile()
         {
-            string fileName = "C:\\Users\\Användar\\source\\repos\\WebLinks\\weblinks.txt";
-            url = File.ReadAllLines(fileName);
+            string fileName;
+            url = File.ReadAllLines("weblinks.txt");
 
         }
 
