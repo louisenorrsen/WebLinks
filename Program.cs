@@ -1,4 +1,6 @@
-﻿namespace WebLinks
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebLinks
 {
     internal class Program
     {
@@ -21,6 +23,10 @@
                 else if (command == "load")
                 {
                     NotYetImplemented(command);
+                }
+                else if (command == "list")
+                {
+                    ListURLFromFile();
                 }
                 else if (command == "open")
                 {
@@ -63,7 +69,16 @@
 
         private static void ListURLFromFile()
         {
+            string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
 
+            for (int i = 0; i < urls.Length; i++)
+            {
+                string name = string.Empty;
+
+                string[] contents = urls[i].Split('.');
+
+                Console.WriteLine($"{i} : {contents[1]}");
+            }
         }
 
         private static void OpenURL(string url)
