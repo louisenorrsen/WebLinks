@@ -1,12 +1,22 @@
 ﻿using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WebLinks
 {   
-    class Links
-    { }
+    class Link
+    {
+        public string namn, url, info;
+
+        public Link(string Namn, string Url, string Info)
+        {
+            namn = Namn;
+            url = Url;
+            info = Info;
+        }
+    }
     internal class Program
     {
-        static string[] url = new string[0];
+        static string[] urls = new string[0];
         static void Main(string[] args)
         {
             PrintWelcome();
@@ -70,7 +80,7 @@ namespace WebLinks
         private static void LoadFile()
         {
             string fileName;
-            url = File.ReadAllLines("weblinks.txt");
+            urls = File.ReadAllLines("weblinks.txt");
 
         }
 
