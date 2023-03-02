@@ -1,4 +1,6 @@
-﻿namespace WebLinks
+﻿using System.Diagnostics;
+
+namespace WebLinks
 {
     internal class Program
     {
@@ -24,7 +26,9 @@
                 }
                 else if (command == "open")
                 {
-                    NotYetImplemented(command);
+                    Console.Write("Link: ");
+                    string linkUrl = Console.ReadLine();
+                    OpenURL(linkUrl);
                 }
                 else
                 {
@@ -68,7 +72,10 @@
 
         private static void OpenURL(string url)
         {
-
+            Process proc = new Process();
+            proc.StartInfo.UseShellExecute = true;
+            proc.StartInfo.FileName = url;
+            proc.Start();
         }
 
         private static void AddURL()
