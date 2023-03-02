@@ -4,6 +4,7 @@ namespace WebLinks
 {
     internal class Program
     {
+        static string[] url = new string[0];
         static void Main(string[] args)
         {
             PrintWelcome();
@@ -22,7 +23,11 @@ namespace WebLinks
                 }
                 else if (command == "load")
                 {
-                    NotYetImplemented(command);
+                    LoadFile();
+                }
+                else if (command == "list")
+                {
+                    ListURLFromFile();
                 }
                 else if (command == "open")
                 {
@@ -62,12 +67,23 @@ namespace WebLinks
 
         private static void LoadFile()
         {
-            string fileName = "";
+            string fileName = "C:\\Users\\Användar\\source\\repos\\WebLinks\\weblinks.txt";
+            url = File.ReadAllLines(fileName);
+
         }
 
         private static void ListURLFromFile()
         {
+            string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
 
+            for (int i = 0; i < urls.Length; i++)
+            {
+                string name = string.Empty;
+
+                string[] contents = urls[i].Split('.');
+
+                Console.WriteLine($"{i} : {contents[1]}");
+            }
         }
 
         private static void OpenURL(string url)
