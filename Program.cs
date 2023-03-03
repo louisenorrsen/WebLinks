@@ -61,8 +61,8 @@ namespace WebLinks
 
         private static void PrintWelcome()
         {
-            Console.WriteLine("Hello and welcome to the ... program ...");
-            Console.WriteLine("that does ... something.");
+            Console.WriteLine("Hello and welcome to the link program,");
+            Console.WriteLine("that opens and adds links.");
             Console.WriteLine("Write 'help' for help!");
         }
 
