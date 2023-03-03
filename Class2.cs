@@ -74,13 +74,13 @@ namespace WebLinks
                 }
 
                 }
-                string[] txet = File.ReadAllLines(path);
+               /* string[] txet = File.ReadAllLines(path);
                 foreach (var line in txet)
                 {
                     Console.WriteLine(line);
                 }
                 Console.WriteLine("Vill du lägga till mer länkar?");
-                svaret = Console.ReadLine();
+                svaret = Console.ReadLine();*/
             }
             else
             {
