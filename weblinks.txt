@@ -1,4 +1,0 @@
-SVT|https://www.svt.se/|Sveriges Television
-SMHI|https://www.smhi.se/|Väderhemsida
-SR|https://www.sr.se/|Sveriges Radio
-Aftonbladet|https://www.aftonbladet.se/|Nyhetssida
