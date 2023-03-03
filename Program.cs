@@ -2,7 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 
 namespace WebLinks
-{   
+{
     class Link
     {
         public string namn, url, info;
@@ -19,7 +19,7 @@ namespace WebLinks
         static Link[] links = new Link[0];
         static void Main(string[] args)
         {
-            
+
             PrintWelcome();
             string command;
             do
@@ -44,9 +44,27 @@ namespace WebLinks
                 }
                 else if (command == "open")
                 {
-                    Console.Write("Link: ");
-                    string linkUrl = Console.ReadLine();
-                    OpenURL(linkUrl);
+                    string link;
+                    bool validLink;
+                    do
+                    {
+                        Console.Write("Name: ");
+                        link = Console.ReadLine();
+                        if (link == null || link == "")
+                        {
+                            Console.WriteLine("Write valid link name!");
+                            validLink = false;
+                        }
+                        else
+                        {
+                            validLink = true;
+                        }
+                    } while (!validLink);
+
+                    for (int i = 0; i < links.Length; i++)
+                    {
+                        if (link.ToLower() == links[i].namn.ToLower()) OpenURL(links[i].url);
+                    }
                 }
                 else
                 {
@@ -80,13 +98,13 @@ namespace WebLinks
 
         private static void LoadFile()
         {
-            
+
             string[] filRader = File.ReadAllLines("weblinks.txt");
 
             links = new Link[filRader.Length];
 
             for (int i = 0; i < filRader.Length; i++)
-                
+
             {
                 string[] rad = filRader[i].Split('|');
                 string namn = rad[0];
@@ -99,7 +117,7 @@ namespace WebLinks
 
                 //Console.WriteLine($"{rad[1]}");
             }
-            
+
         }
 
         private static void ListURL()
