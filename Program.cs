@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.SymbolStore;
 using System.Security.Cryptography.X509Certificates;
 
 namespace WebLinks
-{   
+{
     class Link
     {
         public string namn, url, info;
@@ -18,8 +19,7 @@ namespace WebLinks
     {
         static Link[] links = new Link[0];
         static void Main(string[] args)
-        {
-            
+        {            
             PrintWelcome();
             string command;
             do
@@ -48,9 +48,33 @@ namespace WebLinks
                 }
                 else if (command == "open")
                 {
+                    string link;
+                    bool validLink;
+                    do
+                    {
+                        Console.Write("Name: ");
+                        link = Console.ReadLine();
+                        if (link == null || link == "")
+                        {
+                            Console.WriteLine("Write valid link name!");
+                            validLink = false;
+                        }
+                        else
+                        {
+                            validLink = true;
+                        }
+                    } while (!validLink);
+
+                    for (int i = 0; i < links.Length; i++)
+                    {
+                        if (link.ToLower() == links[i].namn.ToLower()) OpenURL(links[i].url);
+                    }
+                }
+                else if (command == "check")
+                {
                     Console.Write("Link: ");
                     string linkUrl = Console.ReadLine();
-                    OpenURL(linkUrl);
+                    Console.WriteLine(DoesNameExistAlready(linkUrl));
                 }
                 else
                 {
@@ -84,13 +108,13 @@ namespace WebLinks
 
         private static void LoadFile()
         {
-            
+
             string[] filRader = File.ReadAllLines("weblinks.txt");
 
             links = new Link[filRader.Length];
 
             for (int i = 0; i < filRader.Length; i++)
-                
+
             {
                 string[] rad = filRader[i].Split('|');
                 string namn = rad[0];
@@ -103,20 +127,19 @@ namespace WebLinks
 
                 //Console.WriteLine($"{rad[1]}");
             }
-            
+
         }
 
         private static void ListURL()
         {
-            string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
+            //string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
 
-            for (int i = 0; i < urls.Length; i++)
+            for (int i = 0; i < links.Length; i++)
             {
                 string name = string.Empty;
+                name = links[i].namn;
 
-                string[] contents = urls[i].Split('.');
-
-                Console.WriteLine($"{i} : {contents[1]}");
+                Console.WriteLine($"{i+1} : {name}");
             }
         }
 
@@ -131,6 +154,20 @@ namespace WebLinks
         private static void AddURL()
         {
             AddFunction.addFunction();
+        }
+
+        public static bool DoesNameExistAlready(string frågandeNamn)
+        {
+            for(int i = 0; i < links.Length; i++)
+            {
+                string namn = links[i].namn;
+                if (namn.ToLower() == frågandeNamn.ToLower())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
