@@ -41,7 +41,6 @@ namespace WebLinks
                 }
                 else if (command == "add")
                 {
-                    LoadFile();
                     AddURL();
                 }
                 else if (command == "load")
@@ -123,9 +122,9 @@ namespace WebLinks
 
             for (int i = 0; i < filRader.Length; i++)
             {
-                if(filRader[i] != "")
+                if(filRader[i] == "")
                 {
-
+                    continue;
                 }
                 string[] rad = filRader[i].Split('|');
                 string namn = rad[0];
