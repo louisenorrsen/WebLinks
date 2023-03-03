@@ -41,6 +41,7 @@ namespace WebLinks
                 }
                 else if (command == "add")
                 {
+                    LoadFile();
                     AddURL();
                 }
                 else if (command == "load")

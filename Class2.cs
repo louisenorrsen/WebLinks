@@ -35,7 +35,7 @@ namespace WebLinks
                         //{ sw.WriteLine(inmatning); }
                     }
 
-                    if (Program.DoesNameExistAlready(namn) == true)
+                    if (Program.DoesNameExistAlready(namn) )
                     {
                         Console.WriteLine("Du skrev ett namn som redan finns, skriv om ett nytt");
                         continue;
@@ -74,13 +74,13 @@ namespace WebLinks
                 }
 
                 }
-                string[] txet = File.ReadAllLines(path);
+               /* string[] txet = File.ReadAllLines(path);
                 foreach (var line in txet)
                 {
                     Console.WriteLine(line);
                 }
                 Console.WriteLine("Vill du lägga till mer länkar?");
-                svaret = Console.ReadLine();
+                svaret = Console.ReadLine();*/
             }
             else
             {
