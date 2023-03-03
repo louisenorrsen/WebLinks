@@ -34,6 +34,10 @@ namespace WebLinks
                 {
                     WriteTheHelp();
                 }
+                else if (command == "add")
+                {
+                    AddURL();
+                }
                 else if (command == "load")
                 {
                     LoadFile();
