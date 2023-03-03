@@ -121,8 +121,11 @@ namespace WebLinks
             links = new Link[filRader.Length];
 
             for (int i = 0; i < filRader.Length; i++)
-
             {
+                if(filRader[i] != "")
+                {
+
+                }
                 string[] rad = filRader[i].Split('|');
                 string namn = rad[0];
                 string url = rad[1];
