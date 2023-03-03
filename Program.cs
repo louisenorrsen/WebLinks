@@ -19,7 +19,6 @@ namespace WebLinks
         static Link[] links = new Link[0];
         static void Main(string[] args)
         {
-            
             PrintWelcome();
             string command;
             do
@@ -104,15 +103,14 @@ namespace WebLinks
 
         private static void ListURL()
         {
-            string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
+            //string[] urls = new string[] { "https://www.svt.se", "https://www.sr.se" };
 
-            for (int i = 0; i < urls.Length; i++)
+            for (int i = 0; i < links.Length; i++)
             {
                 string name = string.Empty;
+                name = links[i].namn;
 
-                string[] contents = urls[i].Split('.');
-
-                Console.WriteLine($"{i} : {contents[1]}");
+                Console.WriteLine($"{i+1} : {name}");
             }
         }
 
