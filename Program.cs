@@ -19,6 +19,7 @@ namespace WebLinks
         static string[] urls = new string[0];
         static void Main(string[] args)
         {
+            
             PrintWelcome();
             string command;
             do
@@ -108,12 +109,7 @@ namespace WebLinks
 
         private static void AddURL()
         {
-
-        }
-
-        private static void SaveURL()
-        {
-
+            AddFunction.addFunction();
         }
     }
 }
