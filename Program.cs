@@ -19,7 +19,8 @@ namespace WebLinks
     {
         static Link[] links = new Link[0];
         static void Main(string[] args)
-        {            
+        {
+            LoadFile();
             PrintWelcome();
             string command;
             do
@@ -44,13 +45,14 @@ namespace WebLinks
                 }
                 else if (command == "open")
                 {
+                    LoadFile();
                     string link;
                     bool validLink;
                     do
                     {
                         Console.Write("Name: ");
                         link = Console.ReadLine();
-                        if (link == null || link == "")
+                        if (link == null || link == "" || !DoesNameExistAlready(link))
                         {
                             Console.WriteLine("Write valid link name!");
                             validLink = false;
