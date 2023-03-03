@@ -107,7 +107,9 @@ namespace WebLinks
             string[] hstr = {
                 "help  - display this help",
                 "load  - load all links from a file",
+                "list  - list all links from a file",
                 "open  - open a specific link",
+                "add   - add a new link to a file",
                 "quit  - quit the program"
             };
             foreach (string h in hstr) Console.WriteLine(h);
