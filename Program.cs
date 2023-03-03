@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.SymbolStore;
 using System.Security.Cryptography.X509Certificates;
 
 namespace WebLinks
@@ -46,6 +47,12 @@ namespace WebLinks
                     Console.Write("Link: ");
                     string linkUrl = Console.ReadLine();
                     OpenURL(linkUrl);
+                }
+                else if (command == "check")
+                {
+                    Console.Write("Link: ");
+                    string linkUrl = Console.ReadLine();
+                    Console.WriteLine(DoesNameExistAlready(linkUrl));
                 }
                 else
                 {
@@ -125,6 +132,20 @@ namespace WebLinks
         private static void AddURL()
         {
             AddFunction.addFunction();
+        }
+
+        public static bool DoesNameExistAlready(string frågandeNamn)
+        {
+            for(int i = 0; i < links.Length; i++)
+            {
+                string namn = links[i].namn;
+                if (namn.ToLower() == frågandeNamn.ToLower())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
