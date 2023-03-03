@@ -16,7 +16,7 @@ namespace WebLinks
     }
     internal class Program
     {
-        static string[] urls = new string[0];
+        static Link[] links = new Link[0];
         static void Main(string[] args)
         {
             PrintWelcome();
@@ -79,9 +79,26 @@ namespace WebLinks
 
         private static void LoadFile()
         {
-            string fileName;
-            urls = File.ReadAllLines("weblinks.txt");
+            
+            string[] filRader = File.ReadAllLines("weblinks.txt");
 
+            links = new Link[filRader.Length];
+
+            for (int i = 0; i < filRader.Length; i++)
+                
+            {
+                string[] rad = filRader[i].Split('|');
+                string namn = rad[0];
+                string url = rad[1];
+                string info = rad[2];
+
+                Link newLink = new Link(namn, url, info);
+
+                links[i] = newLink;
+
+                //Console.WriteLine($"{rad[1]}");
+            }
+            
         }
 
         private static void ListURL()
