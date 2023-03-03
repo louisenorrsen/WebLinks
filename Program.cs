@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.SymbolStore;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace WebLinks
 {
@@ -19,7 +20,8 @@ namespace WebLinks
     {
         static Link[] links = new Link[0];
         static void Main(string[] args)
-        {            
+        {
+            Console.OutputEncoding = Encoding.UTF8;
             PrintWelcome();
             string command;
             do
@@ -40,6 +42,7 @@ namespace WebLinks
                 }
                 else if (command == "list")
                 {
+                    LoadFile();
                     ListURL();
                 }
                 else if (command == "open")
@@ -134,8 +137,9 @@ namespace WebLinks
             {
                 string name = string.Empty;
                 name = links[i].namn;
+                string info = links[i].info;
 
-                Console.WriteLine($"{i+1} : {name}");
+                Console.WriteLine($"{i+1} : {name} - {info}");
             }
         }
 
