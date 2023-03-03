@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.IO;
 
 namespace WebLinks
@@ -35,7 +35,7 @@ namespace WebLinks
                         //{ sw.WriteLine(inmatning); }
                     }
 
-                    if (Program.DoesNameExistAlready(namn) == true)
+                    if (Program.DoesNameExistAlready(namn) )
                     {
                         Console.WriteLine("Du skrev ett namn som redan finns, skriv om ett nytt");
                         continue;
