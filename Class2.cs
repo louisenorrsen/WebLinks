@@ -29,21 +29,46 @@ namespace WebLinks
 
                     if (string.IsNullOrWhiteSpace(namn) == true)
                     {
-                            Console.WriteLine("Du skrev inget namn");
-                            continue;
-                            //using (StreamWriter sw = File.AppendText(path))
-                            //{ sw.WriteLine(inmatning); }
+                        Console.WriteLine("Du skrev inget namn");
+                        continue;
+                        //using (StreamWriter sw = File.AppendText(path))
+                        //{ sw.WriteLine(inmatning); }
                     }
+
+                    if (Program.DoesNameExistAlready(namn) == true)
+                    {
+                        Console.WriteLine("Du skrev ett namn som redan finns, skriv om ett nytt");
+                        continue;
+                    }
+
+                    
+                    
 
                     Console.WriteLine("Skriv kort beskrivning: ");
                     string beskrivning = Console.ReadLine();
+
+
                     Console.WriteLine("Skriv lanken, t.e. www.Google.com ");
                     string lanken = Console.ReadLine();
-                    string[] nylank = { namn, beskrivning, lanken };
-                    string inmatning = nylank[0] + "|" + nylank[2] + "|" + nylank[1];
+                        if (string.IsNullOrWhiteSpace(lanken) == true)
+                        {
+                            Console.WriteLine("Du skrev inget lank");
+                            continue;
+                            //using (StreamWriter sw = File.AppendText(path))
+                            //{ sw.WriteLine(inmatning); }
+                        }
 
-                        
-                        
+                        if (Program.DoesNameExistAlready(lanken) == true)
+                        {
+                            Console.WriteLine("Du skrev ett lank som redan finns, skriv om ett nytt");
+                            continue;
+                        }
+                        string[] nylank = { namn, beskrivning, lanken };
+                        string inmatning = nylank[0] + "|" + nylank[2] + "|" + nylank[1];
+                        using (StreamWriter sw = File.AppendText(path))
+                        { sw.WriteLine(inmatning); }
+
+
                         i++;
                         //File.WriteAllText($@"{path}\linkList.list", inmatning);
                 }
